@@ -137,7 +137,7 @@ if [ -f "$MRU_FILE" ]; then
       echo "$cut_fn" >> $GREP_EXCLUDE
       if [ "$fn" != "$exclude_file" ]; then
         if [ -n "$color_mru" ]; then
-          echo -e "\e[38;5;${color_mru}m${prefix_mru}\e[m ${cut_fn}" >> $MRU
+          echo -e "\x1b[38;5;${color_mru}m${prefix_mru}\x1b[m ${cut_fn}" >> $MRU
         else
           echo "${prefix_mru} $cut_fn" >> $MRU
         fi
@@ -155,7 +155,7 @@ if [[ -n "$git_root" && $git_ls -eq 1 ]]; then
     echo "$cut_fn" >> $GREP_EXCLUDE
     if [ "$p" != "$exclude_file" ]; then
       if [ -n "$color_git" ]; then
-        echo -e "\e[38;5;${color_git}m${prefix_git}\e[m ${cut_fn}" >> $MRU
+        echo -e "\x1b[38;5;${color_git}m${prefix_git}\x1b[m ${cut_fn}" >> $MRU
       else
         echo "${prefix_git} $cut_fn" >> $MRU
       fi
